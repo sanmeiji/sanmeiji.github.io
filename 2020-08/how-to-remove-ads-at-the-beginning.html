@@ -334,7 +334,7 @@
 <hr>
 <p>我这种硬盘党的日子不好过啊。继人人的片头30秒广告之后，FIX也开始加片头广告了……虽然只有15秒的时间，但是也足以把我气到去小小地研究了一下怎么使用ffmpeg把开头广告去掉。结果当然是可喜可贺。</p>
 <p>要去掉片头广告实际上很简单，只需要先去下载和配置好ffmpeg，再用cmd或者其他terminal（我用了git bash）运行下面这一行命令就可以了：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &lt;视频文件名称&gt; -ss 00:00:14.500 -t 00:46:20.02 -map 0 -vcodec copy -acodec copy -async 1 &lt;新的视频名称&gt;</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ffmpeg -i &lt;视频文件名称&gt; -ss 00:00:14.500 -t 00:46:20.02 -map 0 -vcodec copy -acodec copy -async 1 &lt;新的视频名称&gt;</span><br></pre></td></tr></table></figure>
 
 <p>第一个方括号（包括方括号在内）用想要剪裁的视频文件的全名替换，第二个方括号同前用新的视频名称替换，两个视频名称都要包括文件扩展名。以下是其他命令的一点解释：</p>
 <p><code>-ss 00:00:14.500</code> 视频开始的位置，FIX添加的片头有15秒，不过真的从<code>00:00:15</code>开始的话似乎会有一些问题，所以稍微提前了不到一秒钟的时间。人人字幕组的30秒广告倒是完全按照<code>00:00:30</code>剪辑没有什么问题。</p>
